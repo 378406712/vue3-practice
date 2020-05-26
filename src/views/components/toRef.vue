@@ -13,7 +13,7 @@ export default {
     //定义自增+1的函数
     const add = () => {
       state.count += 1
-      console.log(state.count)
+      // console.log(state.count)
     }
     return { ...toRefs(state), add }
   }

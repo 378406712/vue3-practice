@@ -5,6 +5,9 @@
     <ChildA :person="person" />
     <ChildB />
     <ToRefs />
+    <Computed />
+    <Watch />
+    <StopWatch />
   </div>
 </template>
 
@@ -13,8 +16,11 @@ import { reactive } from 'vue'
 import ChildA from './components/childA'
 import ChildB from './components/childB'
 import ToRefs from './components/toRef'
+import Computed from './components/computed'
+import Watch from './components/watch'
+import StopWatch from './components/stopWatch'
 export default {
-  components: { ChildA, ChildB, ToRefs },
+  components: { ChildA, ChildB, ToRefs, Computed, StopWatch },
   setup(props, context) {
     // console.log('setup')
     // console.log(context)

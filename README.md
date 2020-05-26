@@ -1,24 +1,6 @@
 # vue3
 
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### myNotes
+## myNotes
 
 1.  setup 的返回值会作为 render 的上下文.
     setup 在整个生命周期中只执行 1 次.
@@ -61,6 +43,7 @@ npm run build
     ```
 10. toRefs 可以将 reactive()创建出的响应式对象转化为普通对象,
     这个对象上的每个属性节点都是**ref()类型的响应数据**.
+
     ```
     import { toRefs, reactive } from 'vue'
     export default {
@@ -75,3 +58,21 @@ npm run build
     }
     }
     ```
+
+11. computed()用来创建计算属性,返回值是一个 ref 实例,使用 computed 需要按需导入.默认为只读属性,创建可读可写的 computed：传入 get 与 set 函数对象:
+
+```
+  const plusTwo = computed({
+    get() {
+      count.value + 2
+    },
+    set(val) {
+      count.value = val - 2
+    }
+  })
+```
+
+12. watch()函数用来监听某数据项的变化,从而触发某些特定的操作,需要按需导入,
+    可监视单个 reactive,ref,也可以监视多个 reactive,ref
+13. 清除监视:在 setup 函数内创建 watch 监视,会在当前组件销毁时自动停止。若想明确地停止
+    某个监视,可以调用 watch()函数的返回值即可.
