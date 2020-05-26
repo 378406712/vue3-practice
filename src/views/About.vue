@@ -20,7 +20,14 @@ import Computed from './components/computed'
 import Watch from './components/watch'
 import StopWatch from './components/stopWatch'
 export default {
-  components: { ChildA, ChildB, ToRefs, Computed, StopWatch },
+  components: {
+    ChildA,
+    ChildB,
+    ToRefs,
+    Computed,
+    Watch,
+    StopWatch
+  },
   setup(props, context) {
     // console.log('setup')
     // console.log(context)

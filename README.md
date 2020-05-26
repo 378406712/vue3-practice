@@ -76,3 +76,32 @@
     可监视单个 reactive,ref,也可以监视多个 reactive,ref
 13. 清除监视:在 setup 函数内创建 watch 监视,会在当前组件销毁时自动停止。若想明确地停止
     某个监视,可以调用 watch()函数的返回值即可.
+14. 可以清除 watch 中无效的异步任务,有时候当 watch 监视的值发生变化时或 watch 被 stop 后我们期望清除那些无效的异步任务,watch 回调函数提供了 cleanup registrator function 来执行清除任务,调用情况:
+
+- watch 被重复执行了
+- watch 被强制 stop 了
+
+15. **生命周期钩子**:beforeCreated,created => setup(),最先执行,其他钩子命名相比 Vue2 只在原钩子名前加了 on,如 mounted => onMounted,beforeDestroy => onBeforeMount,destoryed => onUnmounted,errorCaptured => onErrorCaptured.
+    这些钩子都要写在 setup 函数内.
+16. provide & inject:provide()和 inject()可以实现嵌套组件之间的数据共享,写在 setup 中.父级组件使用 provide 函数向下传递数据,子组件使用 inject 获取上层传递的数据.
+    provide('要共享数据的名称',被共享的数据),才传递过程中,后面传递的数据会覆盖前面的同名数据.
+17. 通过 ref()还能引用页面上的组件,同 Vue2.
+    定义方式：在 setup 下定义标签 let h1Ref= ref(null),在 onMounted 中给它赋值,如
+    ```
+     h1Ref.value.style.color = 'gold'
+    ```
+    然后 return 出 h1Ref,在模板标签中定义 ref="h1Ref".
+    同时也能调用子组件 setup 中定义的值与方法
+18. createComponent 提供了类型推断,方便结合 TS 书写代码时,能为 setup()中的 props 提供完整的类型推断.
+
+        ```
+        import {createComponent} from 'vue'
+        export default createComponent({
+          porps:{
+            foo:String
+          },
+          setup(props){
+            props.foo //type：string
+          }
+        })
+        ```

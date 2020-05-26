@@ -51,19 +51,19 @@ export default {
     /**
      * 监听多个ref数据源
      */
-    const count = ref( 0 )
-    const foo = ref('bar')
-    watch([count, foo], ([newCount, newName], [oldCount, oldName]) => {
-      console.log(newCount)
-      console.log(newName)
-      console.log('-----')
-      console.log(oldCount)
-      console.log(oldName)
-    })
-    setTimeout(() => {
-      count.value+=1
-      foo.value = 'chen'
-    }, 1500)
+    // const count = ref( 0 )
+    // const foo = ref('bar')
+    // watch([count, foo], ([newCount, newName], [oldCount, oldName]) => {
+    //   console.log(newCount)
+    //   console.log(newName)
+    //   console.log('-----')
+    //   console.log(oldCount)
+    //   console.log(oldName)
+    // })
+    // setTimeout(() => {
+    //   count.value+=1
+    //   foo.value = 'chen'
+    // }, 1500)
   }
 }
 </script>

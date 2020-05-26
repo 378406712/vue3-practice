@@ -8,6 +8,11 @@ const routes = [
   component: Home
 },
 {
+  path: '/next',
+  name: 'Next',
+  component: ()=>import('../views/NextTick.vue')
+},
+{
   path: '/about',
   name: 'About',
   // route level code-splitting
